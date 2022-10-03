@@ -35,6 +35,8 @@ LOCAL_STATIC_ANDROID_LIBRARIES := \
     androidx.viewpager_viewpager \
     androidx.legacy_legacy-support-v13 \
     com.google.android.material_material_md3 \
+    ExthmSettingsLib \
+    SettingsLib \
     colorpicker \
     libchips \
     libphotoviewer
