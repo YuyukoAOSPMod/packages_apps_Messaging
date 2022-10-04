@@ -98,8 +98,6 @@ public class ApplicationSettingsActivity extends ExthmCollapsingToolbarBaseActiv
 
         @Override
         public void onCreatePreferences(Bundle savedInstanceState,String rootKey) {
-            super.onCreate(savedInstanceState);
-
             getPreferenceManager().setSharedPreferencesName(BuglePrefs.SHARED_PREFERENCES_NAME);
             addPreferencesFromResource(R.xml.preferences_application);
 
