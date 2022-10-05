@@ -161,6 +161,11 @@ public class CaptchaKeywordsSettingsActivity extends ExthmCollapsingToolbarBaseA
                 public KeywordsVH(@NonNull View itemView) {
                     super(itemView);
                     this.textView = (TextView) itemView;
+                    if (UiUtils.isDarkMode()){
+                        textView.setTextColor(Color.WHITE);
+                    }else{
+                        textView.setTextColor(Color.BLACK);
+                    }
                 }
             }
 
