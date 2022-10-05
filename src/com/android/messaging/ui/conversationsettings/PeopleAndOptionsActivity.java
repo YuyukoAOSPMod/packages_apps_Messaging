@@ -25,17 +25,17 @@ import com.android.messaging.ui.BugleActionBarActivity;
 import com.android.messaging.ui.UIIntents;
 import com.android.messaging.util.Assert;
 
+import org.exthmui.settingslib.collapsingtoolbar.ExthmCollapsingToolbarBaseActivity;
+
 /**
  * Shows a list of participants in a conversation.
  */
-public class PeopleAndOptionsActivity extends BugleActionBarActivity {
+public class PeopleAndOptionsActivity extends ExthmCollapsingToolbarBaseActivity {
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.people_and_options_activity);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
