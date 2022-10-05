@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -23,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.messaging.R;
 import com.android.messaging.ui.BugleActionBarActivity;
 import com.android.messaging.util.CaptchaKeywordsUtils;
+import com.android.messaging.util.UiUtils;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
@@ -40,6 +42,13 @@ public class CaptchaKeywordsSettingsActivity extends ExthmCollapsingToolbarBaseA
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragment_container_view, new CaptchaKeywordsSettingsFragment())
                 .commit();
+
+        Window window = getWindow();
+        if (UiUtils.isDarkMode()){
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+        }else{
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
     }
 
     @Override

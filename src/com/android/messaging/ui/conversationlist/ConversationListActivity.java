@@ -21,11 +21,14 @@ import android.os.Bundle;
 import androidx.appcompat.app.ActionBar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
 
 import com.android.messaging.R;
 import com.android.messaging.ui.UIIntents;
 import com.android.messaging.util.DebugUtils;
 import com.android.messaging.util.Trace;
+import com.android.messaging.util.UiUtils;
 
 public class ConversationListActivity extends AbstractConversationListActivity {
     @Override
@@ -34,6 +37,14 @@ public class ConversationListActivity extends AbstractConversationListActivity {
         setTheme(R.style.BugleTheme_ConversationListActivity);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.conversation_list_activity);
+
+        Window window = getWindow();
+        if (UiUtils.isDarkMode()){
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+        }else{
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
+
         Trace.endSection();
         invalidateActionBar();
     }

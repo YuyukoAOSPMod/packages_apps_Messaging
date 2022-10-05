@@ -20,9 +20,12 @@ import android.os.Bundle;
 import androidx.appcompat.app.ActionBar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
 
 import com.android.messaging.R;
 import com.android.messaging.util.DebugUtils;
+import com.android.messaging.util.UiUtils;
 
 public class ArchivedConversationListActivity extends AbstractConversationListActivity {
 
@@ -34,6 +37,12 @@ public class ArchivedConversationListActivity extends AbstractConversationListAc
                 ConversationListFragment.createArchivedConversationListFragment();
         getFragmentManager().beginTransaction().add(android.R.id.content, fragment).commit();
         invalidateActionBar();
+        Window window = getWindow();
+        if (UiUtils.isDarkMode()){
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+        }else{
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
     }
 
     protected void updateActionBar(ActionBar actionBar) {

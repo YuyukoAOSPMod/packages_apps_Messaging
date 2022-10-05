@@ -17,9 +17,12 @@
 package com.android.messaging.ui;
 
 import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
 import android.webkit.WebView;
 
 import com.android.messaging.R;
+import com.android.messaging.util.UiUtils;
 
 import org.exthmui.settingslib.collapsingtoolbar.ExthmCollapsingToolbarBaseActivity;
 
@@ -29,6 +32,12 @@ public class LicenseActivity extends ExthmCollapsingToolbarBaseActivity {
     public void onCreate(final Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.license_activity);
+        Window window = getWindow();
+        if (UiUtils.isDarkMode()){
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+        }else{
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
         final WebView webView = findViewById(R.id.content);
         webView.loadUrl("file:///android_asset/licenses.html");
     }

@@ -25,6 +25,8 @@ import android.os.Bundle;
 import androidx.appcompat.app.ActionBar;
 import android.text.TextUtils;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
 
 import com.android.messaging.R;
 import com.android.messaging.datamodel.MessagingContentProvider;
@@ -64,6 +66,13 @@ public class ConversationActivity extends BugleActionBarActivity
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.conversation_activity);
+
+        Window window = getWindow();
+        if (UiUtils.isDarkMode()){
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+        }else{
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
 
         final Intent intent = getIntent();
 

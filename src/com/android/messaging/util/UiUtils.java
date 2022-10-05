@@ -17,6 +17,7 @@
 package com.android.messaging.util;
 
 import android.app.Activity;
+import android.app.UiModeManager;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.pm.ActivityInfo;
@@ -203,6 +204,11 @@ public class UiUtils {
             ellipsized = text;
         }
         return ellipsized;
+    }
+
+    public static boolean isDarkMode(){
+        UiModeManager modeManager = (UiModeManager) getApplicationContext().getSystemService(Context.UI_MODE_SERVICE);
+        return modeManager.getNightMode() == UiModeManager.MODE_NIGHT_YES;
     }
 
     /**
